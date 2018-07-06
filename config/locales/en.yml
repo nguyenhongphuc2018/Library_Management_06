@@ -9,6 +9,7 @@ en:
       category: "Category"
       books: "Books"
       login: "Login"
+      logout: "Logout"
     footer:
       library: "Framgia Library"
       copy: "&copy All right Reversed."
