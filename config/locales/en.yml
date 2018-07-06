@@ -1,2 +1,33 @@
 en:
-  hello: "Hello world"
+######################### Layout #################################
+  layouts:
+    header:
+      logo: "Library"
+      home: "Home"
+      about: "About"
+      contact: "Contact"
+      category: "Category"
+      books: "Books"
+      login: "Login"
+    footer:
+      library: "Framgia Library"
+      copy: "&copy All right Reversed."
+##################################################################
+######################### Static pages ###########################
+  static_pages:
+    home:
+      title_silder1: "Second Slide"
+      title_content1: "This is a description for the first slide."
+      search: "Search"
+      next: "next"
+      previous: "Previous"
+      about: "About Us"
+      about_detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut gravida, 
+        quam vitae est Sed non eros elementum nulla sodales ullamcorper."
+      contact: "Contact Us"
+      info: "Us info"
+      address: " 3050 Universal Blvd #190 Fort Lauderdale, FL, 33331, Sydney New York City"
+      email: "susislibrary@domain.com"
+      phone: "+62 582 528 527 21"
+      web: "www.susislibrary.com"
+##################################################################
