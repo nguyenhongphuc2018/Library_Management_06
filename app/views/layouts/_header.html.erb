@@ -26,10 +26,10 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right ml-auto">
-        <li class="nav-item dropdown">
-          <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#"><i class="fa fa-search"></i></a>
-          <a data-toggle="dropdown" class="nav-link dropdown-toggle hide" href="#"><i class="fa fa-close"></i></a>
-          <ul class="dropdown-menu dropdown-menu-right">
+        <li class="nav-item dropdown dropdown-search">
+          <a data-toggle="dropdown" class="nav-link dropdown-toggle dropdown-search-toggle" href="#"><i class="fa fa-search"></i></a>
+          <a data-toggle="dropdown" class="nav-link dropdown-toggle dropdown-search-toggle hide" href="#"><i class="fa fa-close"></i></a>
+          <ul class="dropdown-menu dropdown-menu-right dropdown-menu-search">
             <li>
               <form>
                 <div class="input-group search-box">
@@ -49,9 +49,11 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag("default_avatar.png", class: "avatar") %>
             </a>
-            <div class="dropdown-menu bg-none" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to t(".logout"), destroy_user_session_path, method: :delete %> 
-            </div>
+             <ul class="dropdown-menu dropdown-menu-right dropdown-logout">
+              <li class="text-center">
+                <%= link_to t(".logout"), destroy_user_session_path, method: :delete %> 
+              </li>
+             </ul>
           </li>
         <% else %>
           <li class="nav-item px-4">

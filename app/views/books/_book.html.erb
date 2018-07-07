@@ -1,6 +1,8 @@
 <div class="col-sm-6 col-md-4 col-lg-2 fix-padding8">
   <div class="card book-card">
-    <%= image_tag book.image, class: "card-img-top" %>
+    <%= link_to  book_path(book) do %>
+      <%= image_tag book.image, class: "card-img-top" %>
+    <% end %>
     <div class="card-body fix-padding8">
       <div class="home-book-title text-left">
         <%= book.name %>

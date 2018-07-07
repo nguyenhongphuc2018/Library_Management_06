@@ -18,3 +18,5 @@
 //= require app
 //= require social-share-button
 //= require search_book
+//= require toastr
+//= require toastr_config

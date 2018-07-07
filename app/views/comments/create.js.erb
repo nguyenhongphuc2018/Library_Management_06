@@ -1,0 +1,9 @@
+<% if @error %>
+  toastr.warning('<%= j @error %>')
+<% else %>
+  setTimeout(function(){ 
+    $('#commentBox').html('<%= j render(partial: 'comments/comment', collection: @comments) %>');
+    $('#commentPage').html('<%= j paginate(@comments, theme: 'twitter-bootstrap-4',pagination_class: 
+    'pagination-md float-right', remote: true) %><div class='clearfix'></div>')}, 
+  200);
+<% end %>

@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :load_book, only: :show
-
   def index
     load_book_index
     respond_to do |format|
@@ -9,7 +8,16 @@ class BooksController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @comments = @book.comments
+                     .order(created_at: :desc)
+                     .page(params[:page])
+                     .per Settings.page.comment
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   private
 
