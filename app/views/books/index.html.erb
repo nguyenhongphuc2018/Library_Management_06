@@ -3,16 +3,27 @@
 <!-- search bar -->
 <div class="container">
   <div class="row justify-content-center">
-      <div class="col-sm col-md-9">
+      <div class="col-sm col-md-8">
+        <div class="text-left num-search" id="numSearch">
+          <%= t ".result_search", number_book: @num_result %>
+        </div>
       </div>
-      <div class="col-sm col-md-3">
-        <div class="form-group">
-          <select class="form-control" id="exampleSelect1">
-            <option><%= t ".sort_by_title" %></option>
-            <option><%= t ".sort_by_author" %></option>
-            <option><%= t ".date_add" %></option>
+      <div class="col-sm col-md-4">
+      <form class="form-inline float-right">
+        <div class="form-group px-2">
+          <select class="form-control" id="sortBook">
+            <option value="name" selected="selected"><%= t ".sort_by_title" %></option>
+            <option value="authors_name"><%= t ".sort_by_author" %></option>
+            <option value="created_at"><%= t ".date_add" %></option>
           </select>
         </div>
+        <div class="form-group">
+          <select class="form-control" id="dirSortBook">
+            <option value="asc" selected="selected">asc</option>
+            <option value="desc">desc</option>
+          </select>
+        </div>
+      </form>
       </div>
     </div>
   </div>
@@ -36,7 +47,7 @@
             </div>
 
             <div id="collapseAvailability" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
+              <div class="card-body content-silderbar">
                 <div><%= t ".available_now" %></div>
               </div>
             </div>
@@ -53,11 +64,11 @@
               </p>
             </div>
             <div id="collapseAuthor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
+              <div class="card-body content-silderbar">
                 <div class="date-add"><a href="#" data-date="7"><%= t ".last_7d" %></a></div>
                 <div class="date-add"><a href="#" data-date="14"><%= t ".last_14d" %></a></div>
                 <div class="date-add"><a href="#" data-date="30"><%= t ".last_30d" %></a></div>
-                <div class="date-add"><a href="#" data-date="6"><%= t ".last_6m" %></a></div>
+                <div class="date-add"><a href="#" data-date="180"><%= t ".last_6m" %></a></div>
               </div>
             </div>
           </div>
@@ -73,7 +84,8 @@
               </p>
             </div>
             <div id="collapseCategory" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
+              <div class="card-body content-silderbar" id="filteCategory">
+                <%= render(partial: "categories/filter_category", collection: @filter_categories)%>
               </div>
             </div>
           </div>
@@ -82,11 +94,13 @@
       </div>
     </div>
     <div class="col-sm-9">
-      <div class="row">
+      <div class="row" id="listSearchBook">
         <%= render partial: "books/search_book", collection: @search_books %>
       </div>
-      <%= paginate @search_books, theme: "twitter-bootstrap-4",
-                      pagination_class: "pagination-sm"%>
+      <div class="text-center" id="listPage">
+        <%= paginate @search_books, theme: "twitter-bootstrap-4",
+                        pagination_class: "pagination-md float-right", remote: true %>
+      </div>
     </div>
   </div>
 </div>
