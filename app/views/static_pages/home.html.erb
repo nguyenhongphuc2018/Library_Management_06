@@ -14,7 +14,7 @@
       </div>
       <div class="carousel-item" style="background-image: url('https://cdn-images-1.medium.com/max/1000/1*V9GdNPhBPL0p-wgL3hMdwQ.png')">
         <div class="carousel-caption">
-                   <p class="h3"><%= t ".title_silder1" %></p>
+          <p class="h3"><%= t ".title_silder1" %></p>
           <p><%= t ".title_content1" %></p>
         </div>
       </div>
@@ -27,20 +27,7 @@
       </div>
       <%= render("layouts/messages") %>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-12 searchForm">
-        <div class="col-sm col-md-6 mx-auto">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="<%= t ".search" %>" aria-label="Search" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-lg btn-success" type="button">
-                <i class="fa fa-search"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only"><%= t ".next" %></span>
@@ -52,12 +39,30 @@
   </div>
 </header>
 
-<div id="about">
+<div class="container fix-padding8">
   <div class="space-80"></div>
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="text-center">
-        <p class="h3">
+    <div class="col-md-12">
+      <div class="text-left">
+        <p class="title-list">
+          <%= t ".just_add" %>
+        </p>
+        <hr>
+       <div class="row justify-content-center">
+        <%= render partial: "books/book", collection: @new_books, as: :book %>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="space-80"></div>
+</div>
+
+<div id="about" class="container">
+  <div class="space-80"></div>
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="text-left">
+        <p class="title-list">
          <%= t ".about" %>
         </p>
         <hr>
@@ -68,12 +73,12 @@
   <div class="space-80"></div>
 </div>
 
-<div id="contact" class="bg-gray">
+<div id="contact" class="bg-gray container">
   <div class="space-80"></div>
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="text-center">
-        <p class="h3">
+    <div class="col-md-12">
+      <div class="text-left">
+        <p class="title-list">
           <%= t ".contact" %>
         </p>
         <hr>

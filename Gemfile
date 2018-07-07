@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "bootstrap", "~> 4.1.1"
+gem "bootstrap4-kaminari-views"
 gem "carrierwave", "1.2.2"
 gem "coffee-rails", "~> 4.2"
 gem "config", "~> 1.7.0"
@@ -21,6 +22,7 @@ gem "kaminari"
 gem "mysql2"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.6"
+gem "ransack"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "social-share-button"

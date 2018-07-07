@@ -1,0 +1,93 @@
+<div class="bg-book-page"></div>
+<div class="space-40"></div>
+<!-- search bar -->
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-sm col-md-9">
+      </div>
+      <div class="col-sm col-md-3">
+        <div class="form-group">
+          <select class="form-control" id="exampleSelect1">
+            <option><%= t ".sort_by_title" %></option>
+            <option><%= t ".sort_by_author" %></option>
+            <option><%= t ".date_add" %></option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- close search bar -->
+<div class="space-40"></div>
+<div class="container"> 
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="accordion" id="accordionExample">
+          <!--slider bar availability -->
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <p class="mb-0 title-silderbar">
+                <%= t ".availability" %>
+                <button class="btn btn-link button-sliderbar" data-toggle="collapse" data-target="#collapseAvailability" aria-expanded="true" aria-controls="collapseAvailability">
+                  <icon class="fa"></icon>
+                </button>
+              </p>
+            </div>
+
+            <div id="collapseAvailability" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div><%= t ".available_now" %></div>
+              </div>
+            </div>
+          </div>
+          <!-- close slider bar availability -->
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <p class="mb-0 title-silderbar">
+                <%= t ".date_added" %>
+                <button class="btn btn-link collapsed button-sliderbar" data-toggle="collapse" data-target="#collapseAuthor" aria-expanded="false" aria-controls="collapseAuthor">
+                  <icon class="fa"></icon>
+                </button>
+              </p>
+            </div>
+            <div id="collapseAuthor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="date-add"><a href="#" data-date="7"><%= t ".last_7d" %></a></div>
+                <div class="date-add"><a href="#" data-date="14"><%= t ".last_14d" %></a></div>
+                <div class="date-add"><a href="#" data-date="30"><%= t ".last_30d" %></a></div>
+                <div class="date-add"><a href="#" data-date="6"><%= t ".last_6m" %></a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- slider bar Category -->
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <p  class="mb-0 title-silderbar">
+                <%= t ".category" %>
+                <button class="btn btn-link collapsed button-sliderbar" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCatogory">
+                  <icon class="fa"></icon>
+                </button>
+              </p>
+            </div>
+            <div id="collapseCategory" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+              </div>
+            </div>
+          </div>
+          <!-- close slider bar category -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <%= render partial: "books/search_book", collection: @search_books %>
+      </div>
+      <%= paginate @search_books, theme: "twitter-bootstrap-4",
+                      pagination_class: "pagination-sm"%>
+    </div>
+  </div>
+</div>
+<div class="space-80"></div>

@@ -59,7 +59,8 @@ namespace :library do
        category_books_attributes: [{category_id: 1}, {category_id: 7}],
        publisher_id: 1,
        total_pages: 731, quantity: 100,
-       image: "https://d1j7sgg6ckvcvy.cloudfront.net/books/original/9780733608582.jpg?v=16",
+       image: "https://d1j7sgg6ckvcvy.cloudfront.net/books/original
+       /9780733608582.jpg?v=16",
        description: FFaker::Lorem.paragraph},
       {name: "Long Way Gone Memoirs of a Boy Soldier",
        author_books_attributes: [{author_id: 1}, {author_id: 2}],
@@ -67,21 +68,25 @@ namespace :library do
        publisher_id: 2,
        total_pages: 240, quantity: 100,
        description: FFaker::Lorem.paragraph,
-       image: "https://upload.wikimedia.org/wikipedia/en/c/c3/A_Long_Way_Gone.jpghttps://upload.wikimedia.org/wikipedia/en/c/c3/A_Long_Way_Gone.jpg"},
+       image: "https://upload.wikimedia.org/wikipedia/en/c/c3/A_Long_Way_
+       Gone.jpghttps:
+       //upload.wikimedia.org/wikipedia/en/c/c3/A_Long_Way_Gone.jpg"},
       {name: "Collapse",
        author_books_attributes: [{author_id: 4}],
        category_books_attributes: [{category_id: 2}, {category_id: 9}],
        publisher_id: 3,
        total_pages: 240, quantity: 100,
        description: FFaker::Lorem.paragraph,
-       image: "https://d3525k1ryd2155.cloudfront.net/h/405/594/534594405.0.m.jpg"},
+       image: "https://d3525k1ryd2155.cloudfront.net/h/405/594/
+       534594405.0.m.jpg"},
       {name: "The Great Gatsby",
        author_books_attributes: [{author_id: 5}],
        category_books_attributes: [{category_id: 2}, {category_id: 10}],
        publisher_id: 4,
        total_pages: 180, quantity: 100,
        description: FFaker::Lorem.paragraph,
-       image: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/TheGreatGatsby_1925jacket.jpeg/220px-TheGreatGatsby_1925jacket.jpeg"}
+       image: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/
+       TheGreatGatsby_1925jacket.jpeg/220px-TheGreatGatsby_1925jacket.jpeg"}
     ]
     books.each do |book|
       Book.create! book

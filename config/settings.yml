@@ -2,3 +2,7 @@ books:
   show:
     default_image: "default_avatar.png"
     words: 20
+page:
+  per: 10
+new_books: 6
+icons: "library.png"
