@@ -168,3 +168,31 @@ margin-right: 5px;
 .bg-gray {
   background-color: $color_wild_sand_approx;
 }
+
+.box {
+  margin: 80px auto 30px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 20px;
+  width: 40%;
+}
+
+.center {
+  text-align: center;
+}
+
+.style-error {
+  position: absolute;
+  top: 65px;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.bg-none {
+  background: none;
+}
