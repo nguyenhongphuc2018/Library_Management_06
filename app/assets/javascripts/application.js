@@ -16,3 +16,4 @@
 //= require popper
 //= require bootstrap
 //= require app
+//= require social-share-button

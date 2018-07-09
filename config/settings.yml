@@ -1,0 +1,4 @@
+books:
+  show:
+    default_image: "default_avatar.png"
+    words: 20

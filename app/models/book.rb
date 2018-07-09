@@ -10,4 +10,6 @@ class Book < ApplicationRecord
   has_many :comment_users, through: :comments, source: :user
   has_many :rates
   has_many :rate_users, through: :rates, source: :user
+  accepts_nested_attributes_for :author_books
+  accepts_nested_attributes_for :category_books
 end
