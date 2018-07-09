@@ -1,0 +1,5 @@
+<% if @error.present? %>
+  toastr.success('<%= j @error %>');
+<% else %>
+  $('#quantity_follow_author_<%= j @id%>').html('<%= j @total_follow.to_s %>');
+<% end %>

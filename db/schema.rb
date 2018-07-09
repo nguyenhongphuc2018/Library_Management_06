@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180714024624) do
+ActiveRecord::Schema.define(version: 20180716095630) do
 
   create_table "author_books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "book_id"
@@ -19,15 +19,6 @@ ActiveRecord::Schema.define(version: 20180714024624) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_author_books_on_author_id"
     t.index ["book_id"], name: "index_author_books_on_book_id"
-  end
-
-  create_table "author_follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_author_follows_on_author_id"
-    t.index ["user_id"], name: "index_author_follows_on_user_id"
   end
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,15 +37,6 @@ ActiveRecord::Schema.define(version: 20180714024624) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_book_borrows_on_book_id"
     t.index ["borrow_id"], name: "index_book_borrows_on_borrow_id"
-  end
-
-  create_table "book_follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_book_follows_on_book_id"
-    t.index ["user_id"], name: "index_book_follows_on_user_id"
   end
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -105,6 +87,18 @@ ActiveRecord::Schema.define(version: 20180714024624) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "follows", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "followable_type", null: false
+    t.integer "followable_id", null: false
+    t.string "follower_type", null: false
+    t.integer "follower_id", null: false
+    t.boolean "blocked", default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["followable_id", "followable_type"], name: "fk_followables"
+    t.index ["follower_id", "follower_type"], name: "fk_follows"
+  end
+
   create_table "publishers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "address"
@@ -147,14 +141,24 @@ ActiveRecord::Schema.define(version: 20180714024624) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "votable_type"
+    t.integer "votable_id"
+    t.string "voter_type"
+    t.integer "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  end
+
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
-  add_foreign_key "author_follows", "authors"
-  add_foreign_key "author_follows", "users"
   add_foreign_key "book_borrows", "books"
   add_foreign_key "book_borrows", "borrows"
-  add_foreign_key "book_follows", "books"
-  add_foreign_key "book_follows", "users"
   add_foreign_key "books", "publishers"
   add_foreign_key "borrows", "users"
   add_foreign_key "category_books", "books"

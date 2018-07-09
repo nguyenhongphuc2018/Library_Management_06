@@ -16,7 +16,9 @@
         <p>
           <%= @author.profile %>
         </p>
-        <a href="#" class="btn btn-primary"><%= t ".follow_author", author: @author.name %></a>
+        <%= link_to follow_author_path(id: @author.id), class: "btn btn-primary", method: :post, remote: true do %>
+        <%= t ".follow_author", author: @author.name %> <strong id="quantity_follow_author_<%= @author.id %>"><%= @author.followers_count %></strong>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,0 +1,5 @@
+<% if @error.present? %>
+  toastr.success('<%= j @error %>');
+<% else %>
+  $('#quantity_like_<%= j @id%>').html('<%= j @total_like.to_s %>');
+<% end %>

@@ -56,11 +56,15 @@
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star"></span>
               <span class="fa fa-star"></span>
-              <a href="javascript:;" class="ml-25">
-                <%= t ".reviews" %></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:;">
-                <%= t ".write_review" %>
-              </a>
-            </div>         
+              <%= link_to  like_book_path(id: @book.id), method: :post, remote: true, class: "ml-10" do %>
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i><strong id="quantity_like_<%= @book.id %>">
+                  <%= @book.votes_for.size %>
+                </strong>
+              <% end %>
+              <%= link_to follow_book_path(id: @book.id), class: "btn btn-primary", method: :post, remote: true do %>
+              <%= t ".follow_book" %><strong id="quantity_follow_book_<%= @book.id %>"><%= @book.followers_count %></strong>
+              <% end %>
+            </div>       
           </div>
           <!-- close content info book -->
         </div>
