@@ -1,0 +1,6 @@
+<% if @borrow.errors.blank? %>
+  $('#contact-modal').modal('hide');
+  toastr.success(I18n.t('borrows.update.update_success'))
+<% else %>
+  alert('<%= j @borrow.errors.full_messages.first %>');
+<% end %>

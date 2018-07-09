@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :books
+  resources :borrows
+  resources :book_borrows
+  get "book_borrows/:id/add_book_borrow", to: "book_borrows#add_book_borrow", as: :add_book_borrow
   root "static_pages#home"
   resources :books, only: %i(show index) do
     resources :comments, only: %i(create destroy)

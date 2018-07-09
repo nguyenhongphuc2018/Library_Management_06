@@ -1,0 +1,19 @@
+<div id="contact-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><%= t ".confirm_book_request" %></h4>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"><%= t ".close" %></span></button>
+      </div>
+        <div class="add-book">
+          <div>
+          <%= t ".time_request" %> <%= current_user.borrows.check_approve(false).first.start_date.strftime("%m/%d/%Y")%> <%= t ".to" %> <%= current_user.borrows.check_approve(false).first.end_date.strftime("%m/%d/%Y") %>
+          </div>
+          <div>
+          <%= link_to t(".request_borrow"), book_borrows_path(id: params[:id]), class: "btn btn-success", method: :post %>
+          <%= link_to t(".change_time"), new_borrow_path(id: params[:id]), class: "btn btn-success", method: :get, remote: true %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

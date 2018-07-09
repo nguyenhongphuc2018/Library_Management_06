@@ -95,6 +95,7 @@ section .section-title {
 
 .margin-header {
   margin-top: 54px;
+  min-height: 410px;
 }
 
 .mapouter{
@@ -679,4 +680,17 @@ section .section-title {
 
 .comment-content {
   font-size: 14px;
+}
+
+.icon-cart {
+  margin-top: 5px;
+}
+
+.text-available {
+  float: right;
+  margin-right: 5px;
+}
+
+.add-book {
+  margin: 20px;
 }

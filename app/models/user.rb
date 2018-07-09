@@ -15,4 +15,18 @@ class User < ApplicationRecord
                                  .image_path(Settings.user.avatar_default)
     avatar.nil? ? path : avatar
   end
+
+  def can_borrow_book
+    if borrows.present? && borrows.check_approve(true)
+                                  .present? && borrows.check_approve(true).last
+                                  .book_borrows.unpaid.present?
+      false
+    else
+      true
+    end
+  end
+
+  def borrow_not_approve
+    borrows.check_approve(false).present?
+  end
 end

@@ -11,8 +11,9 @@ en:
     show:
       cool_green: "Cool green dress with red bell"
       author: "Author:"
-      availability: "Availability:"
-      instock: "In Stock"
+      availability: "Availability"
+      unavailability: "Unavailability"
+      status: "Status: "
       borrow: "BORROW"
       reviews: "reviews"
       write_review: "Write a review"
@@ -32,7 +33,43 @@ en:
       result_search: " Search %{number_book} results"
     book:
       borrow: "borrow"
+      by: "by"
+      available: "Available"
+      unavailable: "Unavailable"
     search_book: "borrow"
+##################################################################
+############################Borrow###############################
+  borrows:
+    index:
+      stt: "STT"
+      start_date: "Start date"
+      end_date: "End date"
+      action: "Action"
+      history_borrow: "Borrow history of user"
+      format_date: "%Y-%m-%d"
+      show: "Show"
+    show:
+      list_book: "List of borrowed books"
+      stt: "STT"
+      name: "Name" 
+      author: "Author"
+      return_date: "Return date"
+      not_return: "not return"
+    create:
+      send_success: "Send request success!"
+      not_return_old_book: "You have not returned your old books!!!"
+      update_time_success: "Update time success"
+    update:
+      update_success: "Update success" 
+      validate_date: "Start date should be before end date"
+##################################################################
+############################Book Borrow###############################
+  book_borrows:
+    create:
+      sent_request: "You have already sent a request for this book"
+      send_success: "Send request success!"
+    destroy:
+        destroy_book: "Are you sure you want to remove this book from the request book?"  
 ##################################################################
 ######################### Layout #################################
   layouts:
@@ -49,6 +86,31 @@ en:
     footer:
       library: "Framgia Library"
       copy: "&copy All right Reversed."
+    form:
+      new_borrow: "New Borrow"
+      close: "Close"
+      edit_time_borrow: "EDIT TIME BORROW"
+      start_date: "Start date:"
+      end_date: "End date:"
+      list_books_borrow: "List books borrow"
+      destroy: "Destroy"
+      history_borrow: "History borrow"
+    form_borrow:
+      form_request: "Form confirm request book"
+      close: "Close"
+      time_borrow: "You want to borrow this book in the period from"
+      to: "to"
+      change_time_borrow: "Change time borrow"
+    form_add_book_borrow:
+      confirm_book_request: "Confirm book request"
+      time_request: "Would you like to borrow this book from"
+      to: "to"
+      request_borrow: "Request borrow"
+      change_time: "Change the borrowing time"
+    form_borrow:
+      time: "Time you want to borrow books"
+      start_date: "Start date: "
+      end_date: "End date: "
 ##################################################################
 ######################### Static pages ###########################
   static_pages:
@@ -68,4 +130,3 @@ en:
       web: "www.susislibrary.com"
       new_book: "New book"
       just_add: "Just add"
-##################################################################
