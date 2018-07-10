@@ -1,0 +1,45 @@
+<div class="container mt-100 ml-140">
+<div class="col-md-9 col-sm-7">
+  <div class="product-page">
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="product-main-image">
+          <%= image_tag(@book.image || Settings.books.show.default_image, class: "style-image") %>
+        </div>
+        <div class="social-button text-center">
+          <%= social_share_button_tag() %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <h1><%= t ".cool_green" %></h1>
+        <div class="price-availability-block clearfix">
+          <div class="author">
+            <strong><span><%= t ".author" %></span>
+            <% @book.authors.each do |author|%>
+              <%= author.name %>
+            <%  end %>
+            </strong>
+          </div>
+          <div class="availability">
+            <%= t ".availability" %><strong><%= t ".instock" %></strong>
+          </div>
+        </div>
+        <div class="description">
+          <p><%= @book.description.truncate_words(Settings.books.show.words) || "Not description" %></p>
+        </div>
+        <div class="product-page-cart">
+          <button class="btn btn-primary" type="submit"><%= t ".borrow" %></button>
+        </div>
+        <div class="review">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+           <a href="javascript:;" class="ml-25"><%= t ".reviews" %></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:;"><%= t ".write_review" %></a>
+        </div>         
+      </div>
+    </div>
+  </div>
+</div>
+</div>

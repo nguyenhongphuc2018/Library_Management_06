@@ -1,4 +1,15 @@
 en:
+######################### Book ###################################
+  books:
+    show:
+      cool_green: "Cool green dress with red bell"
+      author: "Author:"
+      availability: "Availability:"
+      instock: "In Stock"
+      borrow: "BORROW"
+      reviews: "reviews"
+      write_review: "Write a review"
+##################################################################
 ######################### Layout #################################
   layouts:
     header:
