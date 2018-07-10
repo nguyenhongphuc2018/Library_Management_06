@@ -9,6 +9,21 @@ en:
       borrow: "BORROW"
       reviews: "reviews"
       write_review: "Write a review"
+    index:
+      last_7d: "Last 7 days"
+      last_14d: "Last 14 days"
+      last_30d: "Last 30 days"
+      last_6m: "Last 6 months"
+      publisher: "Publilsher"
+      availability: "Availability"
+      available_now: "Available now"
+      date_added: "Date added"
+      sort_by_title: "Sorted by title"
+      sort_by_author: "Sorted by author"
+      date_add: "Date add"
+    book:
+      borrow: "borrow"
+    search_book: "borrow"
 ##################################################################
 ######################### Layout #################################
   layouts:
@@ -21,6 +36,7 @@ en:
       books: "Books"
       login: "Login"
       logout: "Logout"
+      search: "Search by title book, name author, category"
     footer:
       library: "Framgia Library"
       copy: "&copy All right Reversed."
@@ -30,7 +46,6 @@ en:
     home:
       title_silder1: "Second Slide"
       title_content1: "This is a description for the first slide."
-      search: "Search"
       next: "next"
       previous: "Previous"
       about: "About Us"
@@ -42,4 +57,6 @@ en:
       email: "susislibrary@domain.com"
       phone: "+62 582 528 527 21"
       web: "www.susislibrary.com"
+      new_book: "New book"
+      just_add: "Just add"
 ##################################################################

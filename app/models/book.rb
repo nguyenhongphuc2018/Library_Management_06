@@ -10,6 +10,18 @@ class Book < ApplicationRecord
   has_many :comment_users, through: :comments, source: :user
   has_many :rates
   has_many :rate_users, through: :rates, source: :user
+
   accepts_nested_attributes_for :author_books
   accepts_nested_attributes_for :category_books
+
+  scope :searchs, (lambda do |keyword|
+    unless keyword.blank?
+      ransack(
+        publisher_name_cont: keyword,
+        name_cont:  keyword,
+        authors_name_cont: keyword,
+        m: "or"
+      ).result
+    end
+  end)
 end
