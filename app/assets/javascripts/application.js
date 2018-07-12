@@ -17,3 +17,4 @@
 //= require bootstrap
 //= require app
 //= require social-share-button
+//= require search_book

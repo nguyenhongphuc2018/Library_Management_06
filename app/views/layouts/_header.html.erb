@@ -1,9 +1,12 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark  affix-top">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark  affix">
   <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand " href="#"><%= image_tag Settings.icons %> <%= t ".logo" %></a>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag Settings.icons %> <%= t ".logo" %>
+    <% end %>
+    <a class="navbar-brand " href="#"></a>
     <div class="collapse navbar-collapse" id="nav-content">   
       <ul class="navbar-nav ">
         <li class="nav-item px-3">
@@ -28,16 +31,16 @@
           <a data-toggle="dropdown" class="nav-link dropdown-toggle hide" href="#"><i class="fa fa-close"></i></a>
           <ul class="dropdown-menu dropdown-menu-right">
             <li>
-              <%= form_tag books_path, method: :get do %>
+              <form>
                 <div class="input-group search-box">
-                  <%= text_field_tag "search", params[:search], required: true, placeholder: t(".search"), class: "form-control" %>
+                  <%= text_field_tag "search", params[:search], id: "inputSearch",required: true, placeholder: t(".search"), class: "form-control" %>
                   <div class="input-group-append input-group-btn">
-                    <button class="btn btn-success" type="submit">
+                    <a class="btn btn-success" id="btnSearch">
                       <i class="fa fa-search"></i>
-                    </button>
+                    </a>
                   </div>
                 </div>
-              <% end %>
+              </form>
             </li>
           </ul>
         </li>

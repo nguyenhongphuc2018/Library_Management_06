@@ -1,0 +1,28 @@
+if(window.location.pathname !== '/books'){
+  window.location.replace('/books');
+}
+$('#numSearch').html('Search <%= @num_result %> results')
+$('#listSearchBook').html('<div class="col-sm-4"></div><div class="col-sm-4"><%= image_tag "load.gif" %></div>')
+
+var checked = $('#filteCategory input:checked').map(function() {
+  return $(this).val()
+}).get();
+
+<% if @filter_categories.nil? %>
+  $('#filteCategory').html('');
+<% else %>
+  $('#filteCategory').html('<%= j render(partial: "categories/filter_category", 
+  collection: @filter_categories) %>')
+<% end %>
+
+$('#filteCategory input').each(function(){
+  if(checked.includes($(this).val())){
+    $(this).attr( 'checked', true )
+  }
+})
+
+setTimeout(function(){ 
+  $('#listSearchBook').html("<%= j render(partial: "books/search_book", collection: @search_books) %>");
+  $('#listPage').html('<%= j paginate(@search_books, theme: "twitter-bootstrap-4",pagination_class: "pagination-md float-right", remote: true) %>')
+  }, 
+200);

@@ -21,6 +21,7 @@ en:
       sort_by_title: "Sorted by title"
       sort_by_author: "Sorted by author"
       date_add: "Date add"
+      result_search: " Search %{number_book} results"
     book:
       borrow: "borrow"
     search_book: "borrow"
