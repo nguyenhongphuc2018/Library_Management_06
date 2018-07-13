@@ -92,4 +92,22 @@ namespace :library do
       Book.create! book
     end
   end
+  task faker_comment: :environment do
+    user = User.create! name: "haiha", email: FFaker::Internet.email,
+      password: "123456"
+    10.times do |_n|
+      name = FFaker::Name.name
+      email = FFaker::Internet.email
+      password = "123456"
+      user = User.create! name: name, email: email, password: password
+      user.skip_confirmation!
+    end
+    users = User.order(:created_at).take(10)
+    users.each do |user|
+      Book.take(10).each do |book|
+        book.comments.build(user_id: user.id,
+        content: FFaker::Lorem.paragraph).save
+      end
+    end
+  end
 end

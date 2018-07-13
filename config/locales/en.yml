@@ -1,4 +1,11 @@
 en:
+######################### Comment ################################
+  comments:
+    create:
+      please_login: "Please login!"
+    destroy:  
+      dont_permision: "you don't have permission"
+##################################################################
 ######################### Book ###################################
   books:
     show:
@@ -9,6 +16,7 @@ en:
       borrow: "BORROW"
       reviews: "reviews"
       write_review: "Write a review"
+      comment: "Comment"
     index:
       last_7d: "Last 7 days"
       last_14d: "Last 14 days"

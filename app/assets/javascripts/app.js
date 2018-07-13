@@ -19,8 +19,8 @@ goToIdPage = function(){
 }
 
 searchBarIcon = function() {
-  var dropdown = $('.navbar-right .dropdown');
-  var toogleBtn = $('.navbar-right .dropdown-toggle');
+  var dropdown = $('.navbar-right .dropdown-search');
+  var toogleBtn = $('.navbar-right .dropdown-search-toggle');
   dropdown.on('show.bs.dropdown', function(e){
     toogleBtn.toggleClass('hide');
   });
@@ -29,3 +29,4 @@ searchBarIcon = function() {
     toogleBtn.first().removeClass('hide');
   });
 }
+

@@ -1,8 +1,15 @@
 books:
   show:
-    default_image: "default_avatar.png"
+    default_image: "default_book.png"
     words: 20
+user:
+  avatar_default: "default_avatar.png"
 page:
   per: 12
+  comment: 5
 new_books: 6
 icons: "library.png"
+comment:
+  content:
+    maximum: 255
+    minimum: 10

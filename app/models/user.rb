@@ -9,4 +9,10 @@ class User < ApplicationRecord
   has_many :rate_books, through: :rates, source: :book
 
   enum role: {guest: 0, admin: 1, banned: 2}
+
+  def load_avatar
+    path = ActionController::Base.helpers
+                                 .image_path(Settings.user.avatar_default)
+    avatar.nil? ? path : avatar
+  end
 end

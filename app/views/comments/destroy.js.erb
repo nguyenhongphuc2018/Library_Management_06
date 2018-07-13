@@ -1,0 +1,8 @@
+<% if @error %>
+  toastr.warning('<%= @error %>')
+<% else %>
+  $('#commentBox').html('<%= j render(partial: 'comments/comment', collection: @comments) %>');
+  $('#commentPage').html('<%= j paginate(@comments, theme: 'twitter-bootstrap-4',pagination_class: 
+  'pagination-md float-right', remote: true) %><div class='clearfix'></div>')
+  toastr.success('<%= t '.success' %>')
+<% end %>
