@@ -23,3 +23,4 @@ borrow:
 autocomplete:
   limit: 5
 no_image: "noImageAvailable.jpg"
+round: 2

@@ -28,8 +28,21 @@ class Book < ApplicationRecord
     end
   end)
 
+  scope :load_name_book, (lambda do |name|
+    unless name.blank?
+      select(:name)
+      .ransack(name_cont: name)
+      .result(distinct: true)
+      .limit Settings.autocomplete.limit
+    end
+  end)
+
   def can_borrow?
     quantity > book_borrows.unpaid.count
+  end
+
+  def avg_rating
+    rates.average(:point).to_f.round Setting.round
   end
 
   def load_image

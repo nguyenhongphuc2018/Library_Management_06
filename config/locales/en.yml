@@ -13,6 +13,8 @@ en:
       please_login: "Please login!"
     destroy:  
       dont_permision: "you don't have permission"
+    form:
+      send: "Send"
 ##################################################################
 ######################### Book ###################################
   books:
@@ -35,11 +37,16 @@ en:
       publisher: "Publilsher"
       availability: "Availability"
       available_now: "Available now"
-      date_added: "Date added"
-      sort_by_title: "Sorted by title"
-      sort_by_author: "Sorted by author"
+      date_add_asc: "Date added (New To Old)"
+      date_add_desc: "Date added (Old To New)"
+      sort_by_title_asc: "Sorted by title (A To Z)"
+      sort_by_title_desc: "Sorted by title (Z To A)"
       date_add: "Date add"
+      advanced_search: "Advanced Search"
       result_search: " Search %{number_book} results"
+      title: "Title"
+      author: "Author"
+      publisher: "Publisher"
     book:
       borrow: "borrow"
       by: "by"
@@ -143,3 +150,8 @@ en:
       web: "www.susislibrary.com"
       new_book: "New book"
       just_add: "Just add"
+##################################################################
+######################### Static pages ###########################
+  rates:
+    create:
+      error: "Something wrong!"

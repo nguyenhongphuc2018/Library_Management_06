@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :load_book, only: %i(create destroy)
+  before_action :user_logged_in, :load_book, only: %i(create destroy)
   def create
     if current_user
       @comment = build_comment

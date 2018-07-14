@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180716095630) do
     t.bigint "publisher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "avg_rate", limit: 24, default: 0.0
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 

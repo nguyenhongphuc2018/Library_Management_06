@@ -12,94 +12,87 @@
       <form class="form-inline float-right">
         <div class="form-group px-2">
           <select class="form-control" id="sortBook">
-            <option value="name" selected="selected"><%= t ".sort_by_title" %></option>
-            <option value="authors_name"><%= t ".sort_by_author" %></option>
-            <option value="created_at"><%= t ".date_add" %></option>
-          </select>
-        </div>
-        <div class="form-group">
-          <select class="form-control" id="dirSortBook">
-            <option value="asc" selected="selected">asc</option>
-            <option value="desc">desc</option>
+            <option value="name asc" selected="selected"><%= t ".sort_by_title_asc" %></option>
+            <option value="name desc" selected="selected"><%= t ".sort_by_title_desc" %></option>
+            <option value="created_at asc"><%= t ".date_add_asc" %></option>
+            <option value="created_at desc"><%= t ".date_add_desc" %></option>
           </select>
         </div>
       </form>
       </div>
     </div>
   </div>
-</div>
-<!-- close search bar -->
-<div class="space-40"></div>
-<div class="container"> 
-  <div class="row">
-    <div class="col-sm-3">
-      <div class="card">
-        <div class="accordion" id="accordionExample">
-          <!--slider bar availability -->
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <p class="mb-0 title-silderbar">
-                <%= t ".availability" %>
-                <button class="btn btn-link button-sliderbar" data-toggle="collapse" data-target="#collapseAvailability" aria-expanded="true" aria-controls="collapseAvailability">
-                  <icon class="fa"></icon>
-                </button>
-              </p>
-            </div>
+  <div class="space-40"></div>
 
-            <div id="collapseAvailability" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body content-silderbar">
-                <div><%= t ".available_now" %></div>
+  <div class="container"> 
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="accordion" id="accordionExample">
+            <!--slider bar availability -->
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <p class="mb-0 title-silderbar">
+                  <%= t ".availability" %>
+                  <button class="btn btn-link button-sliderbar" data-toggle="collapse" data-target="#collapseAvailability" aria-expanded="true" aria-controls="collapseAvailability">
+                    <icon class="fa"></icon>
+                  </button>
+                </p>
+              </div>
+
+              <div id="collapseAvailability" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body content-silderbar">
+                  <div><%= t ".available_now" %></div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- close slider bar availability -->
-
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <p class="mb-0 title-silderbar">
-                <%= t ".date_added" %>
-                <button class="btn btn-link collapsed button-sliderbar" data-toggle="collapse" data-target="#collapseAuthor" aria-expanded="false" aria-controls="collapseAuthor">
-                  <icon class="fa"></icon>
-                </button>
-              </p>
-            </div>
-            <div id="collapseAuthor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body content-silderbar">
-                <div class="date-add"><a href="#" data-date="7"><%= t ".last_7d" %></a></div>
-                <div class="date-add"><a href="#" data-date="14"><%= t ".last_14d" %></a></div>
-                <div class="date-add"><a href="#" data-date="30"><%= t ".last_30d" %></a></div>
-                <div class="date-add"><a href="#" data-date="180"><%= t ".last_6m" %></a></div>
+            <!-- close slider bar availability -->
+            <!-- slider bar Category -->
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <p  class="mb-0 title-silderbar">
+                  <%= t ".category" %>
+                  <button class="btn btn-link collapsed button-sliderbar" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCatogory">
+                    <icon class="fa"></icon>
+                  </button>
+                </p>
+              </div>
+              <div id="collapseCategory" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body content-silderbar" id="filteCategory">
+                  <%= render partial: "categories/filter_category", collection: @filter_categories %>
+                </div>
               </div>
             </div>
-          </div>
+            <!-- close slider bar category -->
 
-          <!-- slider bar Category -->
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <p  class="mb-0 title-silderbar">
-                <%= t ".category" %>
-                <button class="btn btn-link collapsed button-sliderbar" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCatogory">
-                  <icon class="fa"></icon>
-                </button>
-              </p>
-            </div>
-            <div id="collapseCategory" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body content-silderbar" id="filteCategory">
-                <%= render(partial: "categories/filter_category", collection: @filter_categories)%>
+            <!-- slider bar Advanced Search -->
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <p  class="mb-0 title-silderbar">
+                  <%= t ".advanced_search" %>
+                  <button class="btn btn-link collapsed button-sliderbar" data-toggle="collapse" data-target="#collapseAdvancedSearch" aria-expanded="false" aria-controls="collapseCatogory">
+                    <icon class="fa"></icon>
+                  </button>
+                </p>
+              </div>
+              <div id="collapseAdvancedSearch" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body content-silderbar" id="filteAdvancedSearch">
+                  <%= render(partial: "books/advanced_search") %>
+                </div>
               </div>
             </div>
+            <!-- close slider bar Advanced Search -->
           </div>
-          <!-- close slider bar category -->
         </div>
       </div>
-    </div>
-    <div class="col-sm-9">
-      <div class="row" id="listSearchBook">
-        <%= render partial: "books/search_book", collection: @search_books %>
-      </div>
-      <div class="text-center" id="listPage">
-        <%= paginate @search_books, theme: "twitter-bootstrap-4",
-                        pagination_class: "pagination-md float-right", remote: true %>
+      <div class="col-sm-9">
+        <div class="row" id="listSearchBook">
+          <%= render partial: "books/search_book", collection: @search_books %>
+        </div>
+        <div class="text-center" id="listPage">
+          <%= paginate @search_books, theme: "twitter-bootstrap-4",
+            pagination_class: "pagination-md float-right", remote: true %>
+        </div>
       </div>
     </div>
   </div>
