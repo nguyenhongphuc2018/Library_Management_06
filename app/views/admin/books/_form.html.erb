@@ -1,0 +1,41 @@
+<%= form_for [:admin, @book] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>q
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :total_pages %>
+    <%= f.number_field :total_pages, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, size: "5x5", class: "form-control" %>
+  </div>
+    <div class="form-group">
+      <p>Category</p>
+      <div class="row">
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
+          <div class="col-3">
+            <%= b.check_box %>
+            <%= b.label %> 
+          </div>
+        <% end%>
+      </div>
+    </div>
+  <div class="form-group">
+    <%= f.collection_select(:publisher_id, Publisher.all, :id, :name, {include_hidden: false}, {class: "form-control"}) %>
+  </div>
+  <div class="form-group">
+    <%= f.collection_select(:author_ids, Author.all, :id, :name, {include_blank: true, include_hidden: false}, {:multiple => true, class: "form-control"}) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit %>
+<% end %>

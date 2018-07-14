@@ -1,4 +1,5 @@
 class RatesController < ApplicationController
+  authorize_resource
   before_action :user_logged_in, :load_book, only: :create
   def create
     @rating = current_user.rates.build rating_parmas

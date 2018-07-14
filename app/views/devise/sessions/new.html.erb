@@ -7,6 +7,11 @@
           <div>
             <%= render("layouts/messages") %>
           </div>
+          <div class="text-center">
+            <%= link_to user_facebook_omniauth_authorize_path do %>
+              <i class="fa fa-facebook-official fa-3x"></i>
+            <% end %>
+          </div>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
             <div class="form-group">
               <%= f.label :email %>

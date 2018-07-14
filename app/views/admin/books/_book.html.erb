@@ -1,0 +1,22 @@
+<tr>
+  <td>
+    <%= book.name %>
+  </td>
+  <td>
+    <%= book.total_pages %>
+  </td>
+  <td>
+    <%= book.quantity %>
+  </td>
+  <td>
+    <%= book.description %>
+  </td>
+  <td>
+    <%= book.publish.name %>
+  </td>
+  <td>
+    <% book.authors.each  do |author| %>
+      <div><%= author.name %> </div>
+    <% end %>
+  </td>
+</tr>

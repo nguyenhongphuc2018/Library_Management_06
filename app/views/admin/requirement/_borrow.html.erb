@@ -1,0 +1,29 @@
+<tr data-borrow="<%= borrow.id %>">
+  <td scope="row"><%= borrow.id %></td>
+  <td><%= borrow.user.name %></td>
+  <td><%= borrow.user.email %></td>
+  <td>
+    <p class="<%= borrow.check_time_start ? "text-success" : "text-danger" %>">
+      <%= borrow.start_date.strftime t(".format_date") %>
+    </p>
+  </td>
+  <td>
+    <p class="<%= borrow.check_time_end ? "text-success" : "text-danger" %>">
+      <%= borrow.end_date.strftime t(".format_date") %>
+    </p>
+  </td>
+  <td><%= borrow.status %></td>
+  <% if borrow.check_status "pedding" %>
+    <td><%= link_to "reject", "requirement/reject/#{borrow.id}", class: "btn btn-sm btn-primary", remote: true, method: :post %></td>
+    <td><%= link_to "approve", "requirement/approve/#{borrow.id}", class: "btn btn-sm btn-primary", remote: true, method: :post %></td>
+  <% elsif borrow.check_status "reject" %>
+    <td><%= link_to "approve", "requirement/approve/#{borrow.id}", class: "btn btn-sm btn-primary", remote: true, method: :post %></td>
+  <% else %>
+    <td><%= link_to "reject", "requirement/reject/#{borrow.id}", class: "btn btn-sm btn-primary", remote: true, method: :post %></td>
+  <% end %>
+  <td>
+    <%= link_to admin_requirement_path(borrow)  do %>
+      <i class="fa fa-eye text-warning" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

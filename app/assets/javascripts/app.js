@@ -1,6 +1,8 @@
 $(document).on('turbolinks:load', function(){
   goToIdPage();
   searchBarIcon();
+  if($('.alert').is(':visible'))
+    $('.alert').fadeOut(5000);
 });
 
 goToIdPage = function(){

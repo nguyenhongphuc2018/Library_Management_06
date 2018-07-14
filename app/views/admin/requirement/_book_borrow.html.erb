@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <%= book_borrow.book.name %>
+  </td>
+  <td>
+    <% book_borrow.book.authors.each  do |author| %>
+      <div><%= author.name %> </div>
+    <% end %>
+  </td>
+</tr>

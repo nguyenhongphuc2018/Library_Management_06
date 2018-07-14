@@ -1,7 +1,7 @@
 class BorrowsController < ApplicationController
-  load_and_authorize_resource
+  authorize_resource
   before_action :load_borrow, only: %i(edit update show)
-  before_action :authenticate_user!, only: %i(index show create)
+  before_action :user_logged_in, only: %i(new index show create)
 
   def index
     @borrows = current_user.borrows.check_approve(true)

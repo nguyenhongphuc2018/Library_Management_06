@@ -1,0 +1,8 @@
+<% if @error %>
+  toastr.error('<%= j @error %>');
+<% else %>
+  $('#listborrow').html("<%= j render(partial: "admin/requirement/borrow", collection: @borrows) %>");
+  $('#listPage').html('<%= j paginate(@borrows, theme: "twitter-bootstrap-4",
+  pagination_class: "pagination-md float-right", remote: true) %>')
+  toastr.success('<%= j @success %>');
+<% end %>

@@ -13,7 +13,8 @@ class Book < ApplicationRecord
   has_many :comment_users, through: :comments, source: :user
   has_many :rates
   has_many :rate_users, through: :rates, source: :user
-
+  validates :name, :total_pages, :quantity, :description, :publisher_id, :image,  presence: true
+  mount_uploader :image, ImageUploader
   accepts_nested_attributes_for :author_books
   accepts_nested_attributes_for :category_books
 

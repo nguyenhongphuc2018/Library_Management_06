@@ -1,5 +1,5 @@
 class BookBorrowsController < ApplicationController
-  load_and_authorize_resource
+  authorize_resource
   before_action :load_book_borrow, only: %i(destroy create)
 
   def create
