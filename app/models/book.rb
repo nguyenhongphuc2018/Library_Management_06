@@ -23,5 +23,10 @@ class Book < ApplicationRecord
         m: "or"
       ).result
     end
-  end)
+  end
+  )
+
+  def avg_rating
+    rates.average(:point).to_f.round(2)
+  end
 end

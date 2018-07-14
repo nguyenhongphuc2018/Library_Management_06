@@ -39,11 +39,13 @@
               <button class="btn btn-primary" type="submit"><%= t ".borrow" %></button>
             </div>
             <div class="review">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
+              <span id="rating-book">
+                <% if user_signed_in? && !current_user.check_rating(@book.id) %>           
+                  <%= render "rates/form", book: @book %>
+                <% else %>
+                  <%= render "rates/rate", book: @book, checked: "rating-star-checked" %>
+                <% end %>
+              </span>
               <a href="javascript:;" class="ml-25">
                 <%= t ".reviews" %></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:;">
                 <%= t ".write_review" %>
@@ -54,28 +56,30 @@
         </div>
       </div>
       <div class="space-80"></div>
-      <ul class="nav nav-tabs" id="bookTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><%= t ".comment" %></a>
-        </li>
-      </ul>
-      <div class="tab-content" id="bookTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <!-- comment box-->
-          <div id="commentForm">
-            <%= render "comments/form" %>
+      <div>
+        <ul class="nav nav-tabs" id="bookTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><%= t ".comment" %></a>
+          </li>
+        </ul>
+        <div class="tab-content" id="bookTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <!-- comment box-->
+            <div id="commentForm" class="mt-2">
+              <%= render "comments/form" %>
+            </div>
+            <div id="commentPage">
+              <%= paginate @comments, theme: "twitter-bootstrap-4", pagination_class: "pagination-md float-right", remote: true %>
+              <div class="clearfix"></div>
+            </div>
+            <div id="commentBox">
+              <%= render partial: "comments/comment", collection: @comments %>
+            </div>
+            <div id="commentPage">
+              <%= paginate @comments, theme: "twitter-bootstrap-4", pagination_class: "pagination-md float-right", remote: true %>
+            </div>
+            <!-- close comment box-->
           </div>
-          <div id="commentPage">
-            <%= paginate @comments, theme: "twitter-bootstrap-4", pagination_class: "pagination-md float-right", remote: true %>
-            <div class="clearfix"></div>
-          </div>
-          <div id="commentBox">
-            <%= render partial: "comments/comment", collection: @comments %>
-          </div>
-          <div id="commentPage">
-            <%= paginate @comments, theme: "twitter-bootstrap-4", pagination_class: "pagination-md float-right", remote: true %>
-          </div>
-          <!-- close comment box-->
         </div>
       </div>
     </div>

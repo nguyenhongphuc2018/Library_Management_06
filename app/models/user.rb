@@ -3,7 +3,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :borrows
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :comment_books, through: :comments, source: :book
   has_many :rates
   has_many :rate_books, through: :rates, source: :book
@@ -14,5 +14,9 @@ class User < ApplicationRecord
     path = ActionController::Base.helpers
                                  .image_path(Settings.user.avatar_default)
     avatar.nil? ? path : avatar
+  end
+
+  def check_rating book_id
+    Rate.where(user_id: id, book_id: book_id).any?
   end
 end

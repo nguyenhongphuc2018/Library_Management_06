@@ -13,3 +13,5 @@ comment:
   content:
     maximum: 255
     minimum: 10
+autocomplete:
+  limit: 5

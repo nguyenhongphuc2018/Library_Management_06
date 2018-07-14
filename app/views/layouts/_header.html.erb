@@ -33,7 +33,8 @@
             <li>
               <form>
                 <div class="input-group search-box">
-                  <%= text_field_tag "search", params[:search], id: "inputSearch",required: true, placeholder: t(".search"), class: "form-control" %>
+                  <%= text_field_tag "search", params[:search], id: "inputSearch",required: true, placeholder: t(".search"), 
+                  class: "form-control", data: {behavior: "autocomplete"}, autocomplete: "off" %>
                   <div class="input-group-append input-group-btn">
                     <a class="btn btn-success" id="btnSearch">
                       <i class="fa fa-search"></i>
@@ -41,8 +42,10 @@
                   </div>
                 </div>
               </form>
+              <ul id="showAutocomplete"></ul>
             </li>
           </ul>
+          
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">

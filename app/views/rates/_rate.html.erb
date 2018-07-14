@@ -1,0 +1,10 @@
+<% (0..4).each do |i| %>
+  <% if book.avg_rating > (i + 0.75) %>
+    <i class="fa fa-star on star-checked" aria-hidden="true"></i>
+  <% elsif book.avg_rating > (i + 0.25) %>
+  <i class="fa fa-star-half-o on <%= star-checked %>" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-star-o on star-checked" aria-hidden="true"></i>
+  <% end %>
+<% end %>
+<span class="rating-num-checked"><%= book.avg_rating %></span>

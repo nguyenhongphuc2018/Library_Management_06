@@ -103,25 +103,6 @@ section .section-title {
   width: 400px;
 }
 
-.gmap_canvas {
-  overflow: hidden;
-  background: none !important;
-  height: 400px;
-  width: 400px;
-}
-
-.bg-gray {
-  background-color: $color_wild_sand_approx;
-}
-
-.box {
-  margin: 80px auto 30px;
-  border: 1px solid black;
-  border-radius: 15px;
-  padding: 20px;
-  width: 40%;
-}
-
 .center {
   text-align: center;
 }
@@ -193,25 +174,6 @@ section .section-title {
   padding-bottom: 8px !important;
 }
 
-.home-book-title {
-  height: 2.6rem;
-  overflow: hidden;
-  font-size: .9rem;
-  font-weight: 700;
-  color: $color_lochinvar_approx;
-  font-family: Tahoma,Verdana,Segoe,sans-serif;
-}
-
-.home-book-author {
-  height: 2.6rem;
-  overflow: hidden;
-  font-size: .75rem;
-  color: $color_rich_gold_approx;
-  font-weight: 700;
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
-}
-
-
 .title-silderbar {
   position: relative;
   font-size: 16px;
@@ -247,7 +209,7 @@ section .section-title {
 
 .borrow-link {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   color: $color_ferra_approx;
 }
@@ -306,59 +268,6 @@ section .section-title {
 
 .dropdown-logout {
   background-color: $color_teal_approx;
-}
-
-.hide {
-  display: none !important;
-}
-
-.bg-book-page {
-  min-height: 30vh;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  position: relative;
-  background-image: url('https://cdn-images-1.medium.com/max/1000/1*V9GdNPhBPL0p-wgL3hMdwQ.png');
-  &:after {
-    background-color: $color_log_cabin_approx;
-    content: '';
-    height: 100%;
-    left: 0;
-    opacity: 0.8;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 2;
-  }
-}
-
-.title-list {
-  text-transform: uppercase;
-  font-size: 16px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 500;
-}
-
-// Footer
-#footer {
-  background: $color_shark_approx !important;
-
-  h5 {
-    padding-left: 10px;
-    border-left: 3px solid $color_gallery_approx;
-    padding-bottom: 6px;
-    margin-bottom: 20px;
-    color: white;
-  }
-
-  a {
-    color: white;
-    text-decoration: none !important;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-  }
 }
 
 .gmap_canvas {
@@ -435,11 +344,6 @@ section .section-title {
   text-align: center;
 }
 
-.fix-padding8 {
-  padding-right: 8px !important;
-  padding-left: 8px !important;
-}
-
 .home-book-title {
   height: 2.6rem;
   overflow: hidden;
@@ -456,50 +360,6 @@ section .section-title {
   color: $color_rich_gold_approx;
   font-weight: 700;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-}
-
-
-.title-silderbar {
-  position: relative;
-}
-
-.button-sliderbar {
-  position: absolute;
-  top:0;
-  bottom: 0;
-  right: 0;
-  padding: 0;
-}
-
-[data-toggle='collapse'] .fa:before {  
-  content: '\f077';
-}
-
-[data-toggle='collapse'].collapsed .fa:before {
-  content: '\f078';
-}
-
-.borrow-link {
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 500;
-  color: $color_ferra_approx;
-}
-
-.search-box {
-  width: 100%;
-  position: relative;
-
-  input {
-    border-color: $color_mercury_approx;
-    box-shadow: none
-  }
-
-  .input-group-btn .btn {
-    border-color: $color_pine_green_approx;
-    background: $color_pine_green_approx;
-    outline: none;
-  }
 }
 
 .mt-100 {
@@ -592,7 +452,7 @@ section .section-title {
     width: 30px;
   }
 }
-
+// Search box header
 .search-box input, .search-box .btn {
   min-height: 38px;
   border-radius: 2px;
@@ -673,10 +533,108 @@ section .section-title {
   }
 }
 
+// comment book show
 .img-comment {
   max-width: 80px;
 }
 
 .comment-content {
+  font-size: 14px;
+}
+
+/****** autocomple header search *********/
+#showAutocomplete {
+  margin: 0;
+  padding:0;
+  position: absolute;
+  width: 307px;
+  cursor: pointer;
+  overflow-y: hidden;
+  max-height: 400px;
+  box-sizing: border-box;
+  z-index: 1001;
+  box-shadow: 0 10px 20px $black_19, 0 6px 6px rgba(0,0,0,0.23);
+  a {
+    color: black !important;
+    padding: 0;
+  }
+}
+
+.result-item {
+  margin: 0;
+  padding: 8px 12px;
+  width:100%;
+  background-color: white;
+  border: 1px $color_mercury_approx solid;
+  &:hover {
+    background-color: $color_gallery_approx;
+  }
+}
+
+/************** author show **************/
+.img-author {
+  max-width: 180px !important;
+}
+
+.author-share-button {
+  padding: 0 15px;
+}
+
+/************** ratting book **************/
+.on {
+  color: $color_supernova_approx;
+}
+
+.rating-star-checked{
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.star-checked {
+  color: $color_supernova_approx;
+}
+
+.rating-num-checked{
+  font-size: 14px;
+}
+
+.rating {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  font-size:20px;
+  color: $color_supernova_approx;
+  padding-top:5px;
+}
+.rating-star {
+  padding-right: 4px;
+  cursor: pointer;
+  display: block;
+  float: right;
+}
+.rating-star:after {
+  position: relative;
+  font-family: FontAwesome;
+  content:'\f006';
+}
+
+.rating-star.checked ~ .rating-star:after,
+.rating-star.checked:after {
+  content:'\f005';
+}
+
+.rating:hover .rating-star:after {content:'\f006';}
+
+.rating-star:hover ~ .rating-star:after, 
+.rating-star:hover:after {
+  content:'\f005' !important;
+}
+
+.rating-num {
+  padding: 5px 10px 0 10px;
+  margin: 0;
+  display: block;
+  float: right;
+  color: black;
   font-size: 14px;
 }

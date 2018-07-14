@@ -30,3 +30,23 @@ searchBarIcon = function() {
   });
 }
 
+// ratings book action
+$(document).on('turbolinks:load',() => {
+  $('.rating-star').on('click', function() {
+    $(this).parents('.rating').find('.rating-star').removeClass('star-checked ');
+    $(this).addClass('star-checked ');
+        
+    var book =  $(this).parents('.rating').data('book');
+    var point = $(this).data('value');
+
+    $.ajax({
+      type: 'POST',
+      url: '/rates',
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+      },
+      data: {rating:{point: point,
+        book_id: book}},
+    });
+  });
+});

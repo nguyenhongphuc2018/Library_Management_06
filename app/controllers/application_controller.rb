@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
+  def after_sign_in_path_for resource
+    if current_user.admin?
+      admin_path
+    else
+      super
+    end
+  end
+
   private
   def storable_location?
     request.get? && is_navigational_format? && !devise_controller? &&

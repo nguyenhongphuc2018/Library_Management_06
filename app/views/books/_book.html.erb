@@ -10,7 +10,11 @@
       <div class="home-book-author text-left">
        <span>by </span>
         <% book.authors.each do |author| %>
-          <span><%= author.name %></span>
+          <span>
+            <%= link_to author_path(author.id) do %> 
+              <%= author.name %>
+            <% end %>
+          </span>
         <% end %>
       </div>
      <div><a href="#" class="borrow-link"><%= t ".borrow" %></a></div>
