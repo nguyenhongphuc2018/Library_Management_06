@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get "search/autocomplete", on: :collection, to: "books#search_autocomplete"
     resources :comments, only: %i(create destroy)
   end
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :users, only: :show
   resources :books
   resources :authors

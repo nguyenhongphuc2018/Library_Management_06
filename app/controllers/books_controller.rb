@@ -65,7 +65,7 @@ class BooksController < ApplicationController
 
   def load_book_index
     books = Book.searchs(params[:search])
-                .ransack params[:q]
+                 .ransack params[:q]
     books.sorts = "name asc" if books.sorts.empty?
     books = books.result(distinct: true).includes(:authors)
     @num_result = books.count

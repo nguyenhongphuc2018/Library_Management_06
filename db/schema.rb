@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20180717042939) do
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name", default: "guest"
+    t.string "name"
     t.string "resource_type"
     t.bigint "resource_id"
     t.datetime "created_at", null: false
@@ -144,9 +144,12 @@ ActiveRecord::Schema.define(version: 20180717042939) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "name"
+    t.integer "role", default: 0
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
