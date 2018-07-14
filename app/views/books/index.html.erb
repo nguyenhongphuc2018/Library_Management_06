@@ -30,23 +30,7 @@
         <div class="card">
           <div class="accordion" id="accordionExample">
             <!--slider bar availability -->
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <p class="mb-0 title-silderbar">
-                  <%= t ".availability" %>
-                  <button class="btn btn-link button-sliderbar" data-toggle="collapse" data-target="#collapseAvailability" aria-expanded="true" aria-controls="collapseAvailability">
-                    <icon class="fa"></icon>
-                  </button>
-                </p>
-              </div>
-
-              <div id="collapseAvailability" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body content-silderbar">
-                  <div><%= t ".available_now" %></div>
-                </div>
-              </div>
-            </div>
-            <!-- close slider bar availability -->
+          
             <!-- slider bar Category -->
             <div class="card">
               <div class="card-header" id="headingThree">
@@ -77,7 +61,7 @@
               </div>
               <div id="collapseAdvancedSearch" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body content-silderbar" id="filteAdvancedSearch">
-                  <%= render(partial: "books/advanced_search") %>
+                  <%= render partial: "books/advanced_search" %>
                 </div>
               </div>
             </div>

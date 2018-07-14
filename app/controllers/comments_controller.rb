@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  load_and_authorize_resource
+  authorize_resource
   before_action :user_logged_in, :load_book, only: %i(create destroy)
   def create
     if current_user

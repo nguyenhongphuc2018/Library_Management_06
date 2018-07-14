@@ -1,0 +1,15 @@
+<%= link_to 'back', admin_requirement_index_path %>
+<p class="h2"><%= @user.name %></p>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>title</th>
+        <th>author</th>
+      </tr>
+    </thead>
+    <tbody id="listborrow">
+      <%= render partial: "admin/requirement/book_borrow", collection: @book_borrows %>
+    </tbody>
+  </table>
+</div>

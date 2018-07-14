@@ -4,6 +4,7 @@ books:
     words: 20
 user:
   avatar_default: "default_avatar.png"
+no_image: "noImageAvailable.jpg"
 page:
   per: 12
   comment: 5

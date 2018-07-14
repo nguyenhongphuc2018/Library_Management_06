@@ -4,7 +4,12 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, :alert => exception.message
+    flash[:alert] = exception.message
+    respond_to do |format|
+      format.js  {render js: "window.location = '#{root_path}'"}
+      format.html {redirect_to root_url, :alert => exception.message} 
+    end
+   
   end
 
   protected
@@ -38,5 +43,12 @@ class ApplicationController < ActionController::Base
 
   def store_user_location!
     store_location_for(:user, request.fullpath)
+  end
+  def after_sign_in_path_for(resource)
+      if current_user.has_role? :admin
+        admin_url
+      else
+        super
+      end
   end
 end

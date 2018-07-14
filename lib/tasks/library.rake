@@ -6,7 +6,7 @@ namespace :library do
     end
 
     User.create! name: "Hai Ninh", email: "haininh@gmail.com", password: "12345678", password_confirmation: "12345678"
-    User.create! name: "Hai Van", email: "haivan@gmail.com", password: "123456789", password_confirmation: "123456789"
+    User.create! name: "Van Hai", email: "haivan@gmail.com", password: "123456789", password_confirmation: "123456789"
     categories = [
       {name: "History", parent_id: nil},
       {name: "Literature & Fiction", parent_id: nil},
@@ -62,8 +62,7 @@ namespace :library do
        category_books_attributes: [{category_id: 1}, {category_id: 7}],
        publisher_id: 1,
        total_pages: 731, quantity: 100,
-       image: "https://d1j7sgg6ckvcvy.cloudfront.net/books/original
-       /9780733608582.jpg?v=16",
+       image: "https://images-na.ssl-images-amazon.com/images/I/51OVhhkMZqL._SX320_BO1,204,203,200_.jpg",
        description: FFaker::Lorem.paragraph},
       {name: "Long Way Gone Memoirs of a Boy Soldier",
        author_books_attributes: [{author_id: 1}, {author_id: 2}],
@@ -71,17 +70,14 @@ namespace :library do
        publisher_id: 2,
        total_pages: 240, quantity: 100,
        description: FFaker::Lorem.paragraph,
-       image: "https://upload.wikimedia.org/wikipedia/en/c/c3/A_Long_Way_
-       Gone.jpghttps:
-       //upload.wikimedia.org/wikipedia/en/c/c3/A_Long_Way_Gone.jpg"},
+       image: "https://i5.walmartimages.com/asr/c53f6fed-2643-487c-9bdd-925a434a1070_1.1bfb6b28b847f9b8c8c8ca71ffb8a0e9.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF}",
       {name: "Collapse",
        author_books_attributes: [{author_id: 4}],
        category_books_attributes: [{category_id: 2}, {category_id: 9}],
        publisher_id: 3,
        total_pages: 240, quantity: 100,
        description: FFaker::Lorem.paragraph,
-       image: "https://d3525k1ryd2155.cloudfront.net/h/405/594/
-       534594405.0.m.jpg"},
+       image: "https://gerakbudayapenang.com/wp-content/uploads/2016/01/collapse-300x0.jpg"},
       {name: "The Great Gatsby",
        author_books_attributes: [{author_id: 5}],
        category_books_attributes: [{category_id: 2}, {category_id: 10}],

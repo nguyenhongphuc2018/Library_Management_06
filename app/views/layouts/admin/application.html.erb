@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "admin/application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "admin/application", "data-turbolinks-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+
+  <body>
+    <%= render "layouts/admin/header" %>
+    <div id="wrapper" class="toggled">
+      <div id="page-content-wrapper">
+        <%= render "layouts/admin/silder_bar" %>
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>     
+    </div>
+  </body>
+</html>

@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    can [:index, :show, :search_autocomplete], Book
     user ||= User.new
     if user.has_role? :admin
       can :manage, :all
@@ -12,6 +13,7 @@ class Ability
       can [:like, :follow], Book
       can :create, Comment
       can :show, User
+      can :manage, Rate
     end
   end
 end
