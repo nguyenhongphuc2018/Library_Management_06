@@ -1,5 +1,5 @@
 if(window.location.pathname !== '/books'){
-  window.location.replace('/books');
+ Turbolinks.visit('/books');
 }
 $('#numSearch').html('Search <%= @num_result %> results')
 $('#listSearchBook').html('<div class="col-sm-4"></div><div class="col-sm-4"><%= image_tag "load.gif" %></div>')

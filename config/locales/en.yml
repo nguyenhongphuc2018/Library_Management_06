@@ -1,4 +1,10 @@
 en:
+######################### Author #################################
+  authors:
+    show:
+      book_by: "Books by %{author}"
+      follow_author: "Follow %{author}"
+##################################################################
 ######################### Comment ################################
   comments:
     create:
@@ -82,7 +88,7 @@ en:
       books: "Books"
       login: "Login"
       logout: "Logout"
-      search: "Search by title book, name author, category"
+      search: "Search by title book, name author"
     footer:
       library: "Framgia Library"
       copy: "&copy All right Reversed."

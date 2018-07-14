@@ -593,7 +593,7 @@ section .section-title {
     width: 30px;
   }
 }
-
+// Search box header
 .search-box input, .search-box .btn {
   min-height: 38px;
   border-radius: 2px;
@@ -674,6 +674,7 @@ section .section-title {
   }
 }
 
+// comment book show
 .img-comment {
   max-width: 80px;
 }
@@ -693,4 +694,41 @@ section .section-title {
 
 .add-book {
   margin: 20px;
+}
+
+// auto complete search header
+#showAutocomplete {
+  margin: 0;
+  padding:0;
+  position: absolute;
+  width: 307px;
+  cursor: pointer;
+  overflow-y: hidden;
+  max-height: 400px;
+  box-sizing: border-box;
+  z-index: 1001;
+  box-shadow: 0 10px 20px $black_19, 0 6px 6px rgba(0,0,0,0.23);
+  a {
+    color: black !important;
+    padding: 0;
+  }
+}
+
+.result-item {
+  margin: 0;
+  padding: 8px 12px;
+  width:100%;
+  background-color: white;
+  border: 1px $color_mercury_approx solid;
+  &:hover {
+    background-color: $color_gallery_approx;
+  }
+}
+
+.img-author {
+  max-width: 180px !important;
+}
+
+.author-share-button {
+  padding: 0 15px;
 }

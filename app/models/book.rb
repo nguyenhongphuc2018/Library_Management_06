@@ -28,4 +28,8 @@ class Book < ApplicationRecord
   def can_borrow?
     quantity > book_borrows.unpaid.count
   end
+
+  def load_image
+    super
+  end
 end
