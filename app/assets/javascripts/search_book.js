@@ -3,6 +3,8 @@ $(document).on('turbolinks:load', function(){
   sortBook();
   searchBook();
   filterCategoryBook();
+  searchAutoComplete();
+  linkSeachClick();
 });
 
 var defaultData = {
@@ -10,7 +12,6 @@ var defaultData = {
     s: 'name asc'
   }
 }
-
 var $data = defaultData;
 
 difSortBook = function() {
@@ -52,9 +53,44 @@ filterCategoryBook = function() {
 
 sendData = function(data) {
   $.ajax({
-    type: "GET",
-    url: "/books",
+    type: 'GET',
+    url: '/books',
     dataType: 'script',
     data: data,
   }); 
+}
+
+searchAutoComplete = function() {
+  var $input = $('[data-behavior=\'autocomplete\']'); 
+  $('body').click(function(){
+    $('#showAutocomplete').html('');
+  });
+  $input.on('input', function() {
+    $('#showAutocomplete').html('');
+    $.ajax({
+      type: 'GET',
+      url: '/books/search-autocomplete',
+      dataType: 'json',
+      data: {q: $(this).val()},
+      success: function(data){
+        if(data.search)
+          data.search.forEach(function(e){
+            $('#showAutocomplete').append('<a href=\'#\' class=\'result-link\' data-link=\''+e.name+
+            '\'><li class=\'result-item\'>'+e.name+'</li></a>')
+          });
+      }
+    })
+  })
+}
+
+linkSeachClick = function () {
+  $(document).on('click', '.result-link', function(event) {
+    $('#inputSearch').val($(this).data('link'))
+    $data.search = $(this).data('link');
+    if(window.location.pathname === '/books'){
+      $data.q.s = $('#sortBook').val() + ' ' + $('#dirSortBook').val();
+    }
+    sendData($data);
+    event.preventDefault();
+  });
 }

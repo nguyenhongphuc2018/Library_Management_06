@@ -1,0 +1,41 @@
+<div class="space-80"></div>
+<div class="container">
+  <div class="h4">
+    <%= @author.name %>
+  </div>
+  <hr>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <%= image_tag @author.load_image , class: "img  img-fluid img-author" %>
+        <div class="text-center pt-2">
+          <%= social_share_button_tag() %>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <p>
+          <%= @author.profile %>
+        </p>
+        <a href="#" class="btn btn-primary"><%= t ".follow_author", author: @author.name %></a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+ 
+    </div>
+    <div class="col-md-9">
+      <div class="h5">
+        <%= t ".book_by", author: @author.name %>
+      </div>
+      <div class="row" id="listSearchBook">
+        <%= render partial: "books/search_book", collection: @books %>
+      </div>
+      <div class="text-center" id="listPage">
+        <%= paginate @books, theme: "twitter-bootstrap-4",
+                        pagination_class: "pagination-md float-right", remote: true %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="space-80"></div>

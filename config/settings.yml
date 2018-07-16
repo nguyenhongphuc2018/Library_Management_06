@@ -20,3 +20,6 @@ borrow:
   day: 7
   per_page: 10
   index: 1
+autocomplete:
+  limit: 5
+no_image: "noImageAvailable.jpg"
