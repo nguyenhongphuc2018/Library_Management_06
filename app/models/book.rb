@@ -24,4 +24,8 @@ class Book < ApplicationRecord
       ).result
     end
   end)
+
+  def can_borrow?
+    quantity > book_borrows.unpaid.count
+  end
 end

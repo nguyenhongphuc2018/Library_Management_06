@@ -1,0 +1,25 @@
+<div class="space-40"></div>
+<div class="container">
+  <h2><%= t ".list_book" %></h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t ".stt" %></th>
+        <th><%= t ".name" %></th>
+        <th><%= t ".author" %></th>
+        <th><%= t ".return_date" %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @book_borrows.each_with_index do |book_borrow, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= book_borrow.book.name %></td>
+        <td><%= book_borrow.book.authors.first.name %></td>
+        <td><%= book_borrow.return_date || t(".not_return") %></td>
+      </tr>
+    <% end %>  
+    </tbody>
+  </table>
+</div>
+<div class="space-0"></div>

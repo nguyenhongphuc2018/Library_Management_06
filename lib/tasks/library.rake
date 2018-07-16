@@ -4,6 +4,9 @@ namespace :library do
     %w(db:drop db:create db:migrate).each do |task|
       Rake::Task[task].invoke
     end
+
+    User.create! name: "Hai Ninh", email: "haininh@gmail.com", password: "12345678", password_confirmation: "12345678"
+    User.create! name: "Hai Van", email: "haivan@gmail.com", password: "123456789", password_confirmation: "123456789"
     categories = [
       {name: "History", parent_id: nil},
       {name: "Literature & Fiction", parent_id: nil},
@@ -90,6 +93,38 @@ namespace :library do
     ]
     books.each do |book|
       Book.create! book
+    end
+
+    User.all.each{|user| user.borrows.create! start_date: Time.now + 1.days, end_date: Time.now + 7.days, approve: true}
+
+    book_borrows = [
+      {
+        borrow_id: 1,
+        book_id: 1
+      },
+      {
+        borrow_id: 1,
+        book_id: 2
+      },
+      {
+        borrow_id: 1,
+        book_id: 3
+      },
+      {
+        borrow_id: 2,
+        book_id: 1
+      },
+      {
+        borrow_id: 2,
+        book_id: 4
+      },
+      {
+        borrow_id: 2,
+        book_id: 2
+      }
+    ]
+    book_borrows.each do |book_borrow|
+      BookBorrow.create! book_borrow
     end
   end
   task faker_comment: :environment do

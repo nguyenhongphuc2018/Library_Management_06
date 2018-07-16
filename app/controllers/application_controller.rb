@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
+  def show_flash_error object_error
+    object_error.errors.full_messages.each do |msg|
+      flash[:notice] = msg
+    end
+  end
+
   private
   def storable_location?
     request.get? && is_navigational_format? && !devise_controller? &&

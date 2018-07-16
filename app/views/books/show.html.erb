@@ -27,7 +27,11 @@
                 </strong>
               </div>
               <div class="availability">
-                <%= t ".availability" %><strong><%= t ".instock" %></strong>
+                <% if @book.can_borrow? %>
+                  <%= t ".status" %><strong><%= t ".availability" %></strong>
+                <% else %>
+                  <%= t ".status" %><strong><%= t ".unavailability" %></strong>
+                <% end %>
               </div>
             </div>
             <div class="description">
@@ -35,8 +39,16 @@
                 <p><%= @book.description.truncate_words(Settings.books.show.words) %></p>
               <% end %>
             </div>
-            <div class="product-page-cart">
-              <button class="btn btn-primary" type="submit"><%= t ".borrow" %></button>
+            <div class="product-page-cart">    
+              <% if @book.can_borrow? %>
+                <% if user_signed_in? && current_user.borrows.check_approve(false).first.present? %>
+                  <%= link_to t(".borrow"), add_book_borrow_path(id: @book.id), class: "btn btn-default", method: :get, remote: true %>
+                <% else %>
+                  <%= link_to t(".borrow"), new_borrow_path(id: @book.id), class: "btn btn-default", method: :get, remote: true %>
+                <% end %>
+              <% else %>
+                <%= t(".unavailability") %>
+              <% end %>
             </div>
             <div class="review">
               <span class="fa fa-star checked"></span>

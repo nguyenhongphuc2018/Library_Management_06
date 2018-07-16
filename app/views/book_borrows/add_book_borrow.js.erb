@@ -1,0 +1,4 @@
+$('<%= j render "layouts/form_add_book_borrow" %>').on('hidden.bs.modal', function (e) {
+  $(this).remove();
+  $('.modal-backdrop').remove();
+}).modal();

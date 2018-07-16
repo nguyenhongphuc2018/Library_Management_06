@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :load_book, only: :show
+  before_action :load_book, only: %i(show)
+
   def index
     load_book_index
     respond_to do |format|
@@ -20,7 +21,6 @@ class BooksController < ApplicationController
   end
 
   private
-
   def load_book
     @book = Book.find_by id: params[:id] || not_found
   end

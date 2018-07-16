@@ -55,6 +55,15 @@
               </li>
              </ul>
           </li>
+          <li class="nav-item px-3">
+            <% if current_user.borrow_not_approve.present? %>
+              <%= link_to edit_borrow_path(id: current_user.borrows.check_approve(false).first.id), class: "icon-cart", method: :get, remote: true do %>
+              <span class="icon-cart-bg fa-stack fa-2x">
+                <i class="fa fa-book fa-stack-1x "></i>
+              </span>
+              <% end %>
+            <% end %>
+          </li>
         <% else %>
           <li class="nav-item px-4">
             <%= link_to t(".login"), new_user_session_path, class: "nav-link" %>
