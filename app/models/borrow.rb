@@ -3,6 +3,8 @@ class Borrow < ApplicationRecord
   has_many :book_borrows, dependent: :destroy
   has_many :books, through: :book_borrows
 
+  enum status: {pedding: 0, approve: 1, reject: 2}
+
   validate :start_date_before_end_date
   validate :start_date_after_now
   validates :start_date, :end_date, presence: true
@@ -12,7 +14,19 @@ class Borrow < ApplicationRecord
   scope :check_approve, ->(boolean_approve){where(approve: boolean_approve)}
   scope :order_by_time, ->{order(:start_date, :end_date, created_at: :asc)}
 
+  def check_status status
+    self.status == status 
+  end
+
+  def check_time_start
+    start_date.to_date > DateTime.now.to_date
+  end
+
+  def check_time_end
+    end_date.to_date > DateTime.now.to_date
+  end
   private
+
   def start_date_before_end_date
     return unless start_date > end_date
     errors.add(:end_date, Settings.borrow.validate_date)

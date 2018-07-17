@@ -16,4 +16,13 @@ Rails.application.routes.draw do
   resources :books
   resources :authors
   resources :rates
+  namespace :admin do
+    get "/", to: "dashboards#index"
+    resources :requirement, only: %i(show index) do
+      collection do
+        post "approve/:id", to: "requirement#approve"
+        post "reject/:id", to: "requirement#reject"
+      end
+    end 
+  end
 end
