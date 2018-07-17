@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  load_and_authorize_resource
+  authorize_resourceE
   skip_authorize_resource only: %i(index show search_autocomplete)
   before_action :load_book, only: %i(show like follow)
   before_action :user_logged_in, only: %i(like follow)

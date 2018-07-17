@@ -1,5 +1,27 @@
 en:
 ######################### Author #################################
+  admin:
+    dashbroads:
+    requirement:
+      borrow:
+        format_date: "%m-%d-%Y"    
+      index:
+        name: "name"
+        email: "Email"
+        start: "Start date"
+        end: "End date" 
+        action: "Action"
+        approve: "Approve"
+      reject:
+        success: "Success"
+        send_mail_error: "Send mail to User"
+        update_error: "Can't not updated, something wrong!"
+      approve:
+        success: "Success"
+        send_mail_error: "Send mail to User"
+        update_error: "Can't not updated, something wrong!"
+##################################################################
+######################### Author #################################
   authors:
     show:
       book_by: "Books by %{author}"
@@ -93,6 +115,12 @@ en:
 ##################################################################
 ######################### Layout #################################
   layouts:
+    admin:
+      header:
+      silder_bar:
+        dashbroad: "Dashbroad"
+        requirement: "Manage Requirement"
+        categories: "Categories"
     header:
       logo: "Library"
       home: "Home"
@@ -131,6 +159,7 @@ en:
       time: "Time you want to borrow books"
       start_date: "Start date: "
       end_date: "End date: "
+    
 ##################################################################
 ######################### Static pages ###########################
   static_pages:
@@ -155,3 +184,13 @@ en:
   rates:
     create:
       error: "Something wrong!"
+##################################################################
+######################### Requirement Mailer #####################
+  requirement_mailer:
+    approved:
+      approved_info: "Your requirement approved"
+      approved_subject: "Library approved"
+    rejected:
+      rejected_info: "Your requirement rejected"
+      rejected_subject: "Library rejected"
+##################################################################

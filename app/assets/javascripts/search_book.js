@@ -49,6 +49,9 @@ sendData = function(data) {
     url: '/books',
     dataType: 'script',
     data: data,
+    success: function(data){
+      console.log(data);
+    }
   }); 
 }
 

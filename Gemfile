@@ -17,6 +17,8 @@ gem "devise-bootstrap-views"
 gem "ffaker", "~> 2.9.0"
 gem "figaro", "~> 1.1", ">= 1.1.1"
 gem "font-awesome-rails"
+gem "whenever", require: false
+gem "sidekiq"
 gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
