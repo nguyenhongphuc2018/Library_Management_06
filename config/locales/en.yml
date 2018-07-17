@@ -155,3 +155,12 @@ en:
   rates:
     create:
       error: "Something wrong!"
+##################################################################
+######################### Requirement Mailer #####################
+  requirement_mail:
+    approved_mailer:
+      approver_mailer:
+        approved: ""
+      rejected_mailer:
+        rejected: ""
+##################################################################

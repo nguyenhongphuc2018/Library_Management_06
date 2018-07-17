@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   resources :books
   resources :authors
   resources :rates
+  namespace :admin do
+    resources :requirement
+  end
 end
