@@ -1,10 +1,9 @@
 <div>
-  <input type="checkbox" class="ckcategory" value="<%= filter_category[0][0] %>" 
-  id="<%= filter_category[0][0] %>" name="category">
-  <label for="<%= filter_category[0][0] %>">
-    <%= filter_category[0][1] %>
+  <input type="checkbox" class="ckcategory" value="<%= filter_category.id %>" 
+  id="<%= filter_category.id %>" name="category">
+  <label for="<%= filter_category.id %>">
+    <%= filter_category.name %>
   </label>
-  <span class="float-right">
-    <%= filter_category[1] %>
+   <span class="float-right">
   </span>
 </div>

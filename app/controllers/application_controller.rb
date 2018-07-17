@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def user_logged_in
     unless user_signed_in?
-      render :js => "window.location = '#{new_user_session_path}'"
+      render js: "window.location = '#{new_user_session_path}'"
     end
   end
 

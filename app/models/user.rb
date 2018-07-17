@@ -23,8 +23,8 @@ class User < ApplicationRecord
 
   def can_borrow_book
     if borrows.present? && borrows.check_approve(true)
-              .present? && borrows.check_approve(true)
-              .last.book_borrows.unpaid.present?
+      .present? && borrows.check_approve(true)
+      .last.book_borrows.unpaid.present?
       false
     else
       true
@@ -33,5 +33,9 @@ class User < ApplicationRecord
 
   def borrow_not_approve
     borrows.check_approve(false).present?
+  end
+
+  def check_rating _book_id
+    Rate.find_rating.any?
   end
 end

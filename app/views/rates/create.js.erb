@@ -1,0 +1,5 @@
+<% if @error %>
+  toastr.warning('<%= j @error %>')
+<% else %>
+  $('#rating-book').html('<%= j render('rates/form', book: @book) %>');
+<% end %>

@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', function(){
-  difSortBook();
   sortBook();
   searchBook();
   filterCategoryBook();
   searchAutoComplete();
   linkSeachClick();
+  advancedSearchClick();
 });
 
 var defaultData = {
@@ -14,17 +14,9 @@ var defaultData = {
 }
 var $data = defaultData;
 
-difSortBook = function() {
-  $('#dirSortBook').on('change', function() {
-    $data.q.s = $('#sortBook').val() + ' ' + this.value;
-    $data.search = $('#inputSearch').val();
-    sendData($data);
-  })
-}
-
 sortBook = function() {
   $('#sortBook').on('change', function() {
-    $data.q.s = this.value + ' ' + $('#dirSortBook').val();
+    $data.q.s = this.value;
     $data.search =  $('#inputSearch').val();
     sendData($data);
   });
@@ -34,7 +26,7 @@ searchBook = function() {
   $('#btnSearch').on('click', function(e){
     $data.search = $('#inputSearch').val();
     if(window.location.pathname === '/books'){
-      $data.q.s = $('#sortBook').val() + ' ' + $('#dirSortBook').val();
+      $data.q.s = $('#sortBook').val();
     }
     sendData($data);
     e.preventDefault();
@@ -69,7 +61,7 @@ searchAutoComplete = function() {
     $('#showAutocomplete').html('');
     $.ajax({
       type: 'GET',
-      url: '/books/search-autocomplete',
+      url: '/books/search/autocomplete',
       dataType: 'json',
       data: {q: $(this).val()},
       success: function(data){
@@ -88,9 +80,30 @@ linkSeachClick = function () {
     $('#inputSearch').val($(this).data('link'))
     $data.search = $(this).data('link');
     if(window.location.pathname === '/books'){
-      $data.q.s = $('#sortBook').val() + ' ' + $('#dirSortBook').val();
+      $data.q.s = $('#sortBook').val();
     }
     sendData($data);
     event.preventDefault();
   });
+}
+
+advancedSearchClick = function() {
+  $('#advancedSearch').on('click',function(event){
+    var title = $('#advancedTitle').val();
+    var author = $('#advancedAu').val();
+    var publisher = $('#advancedPub').val()
+    if(title){
+      $data.q.name_cont = title;
+    }
+    if(author){
+      $data.q.authors_name_cont = author;
+    }
+    if(publisher){
+      $data.q.publishers_name_cont = publisher;
+    }
+    if(title || author || publisher){
+      sendData($data);
+    }
+    event.preventDefault();
+  })
 }

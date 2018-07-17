@@ -29,7 +29,7 @@ class BooksController < ApplicationController
       render json: {search: @search}
     end
   end
-      
+
   def like
     @id = params[:id]
     if current_user.liked? @book
@@ -65,18 +65,17 @@ class BooksController < ApplicationController
     books = Book.searchs(params[:search])
                 .ransack params[:q]
     books.sorts = "name asc" if books.sorts.empty?
-    books = books.result(distinct: true)
+    books = books.result(distinct: true).includes(:authors)
     @num_result = books.count
-    @filter_categories = Category.load_by_list_book(books.select(:id))
+    @filter_categories = Category.sort_category
+                                 .select_category
     @search_books = books.page(params[:page])
                          .per Settings.page.per
   end
 
   def load_search_autocomplete
-    book = Book.select(:name).ransack(name_cont: params[:q])
-               .result(distinct: true).limit Settings.autocomplete.limit
-    author = Author.select(:name).ransack(name_cont: params[:q])
-                   .result(distinct: true).limit Settings.autocomplete.limit
+    book = Book.load_name_book params[:q]
+    author = Author.load_name_author params[:q]
     @search = book + author
   end
 end
