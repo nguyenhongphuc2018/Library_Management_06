@@ -50,7 +50,7 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag("default_avatar.png", class: "avatar") %>
+              <%= image_tag("#{current_user.avatar.blank? ? Settings.user.avatar_default : current_user.avatar}", class: "avatar") %>
             </a>
              <ul class="dropdown-menu dropdown-menu-right dropdown-logout">
               <li class="text-center">

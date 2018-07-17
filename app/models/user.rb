@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
@@ -10,6 +12,9 @@ class User < ApplicationRecord
 
   enum role: {guest: 0, admin: 1, banned: 2}
 
+  acts_as_voter
+  acts_as_follower
+
   def load_avatar
     path = ActionController::Base.helpers
                                  .image_path(Settings.user.avatar_default)
@@ -18,8 +23,8 @@ class User < ApplicationRecord
 
   def can_borrow_book
     if borrows.present? && borrows.check_approve(true)
-                                  .present? && borrows.check_approve(true).last
-                                  .book_borrows.unpaid.present?
+              .present? && borrows.check_approve(true)
+              .last.book_borrows.unpaid.present?
       false
     else
       true

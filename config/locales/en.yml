@@ -4,6 +4,8 @@ en:
     show:
       book_by: "Books by %{author}"
       follow_author: "Follow %{author}"
+    follow:
+      please_login: "Please login"  
 ##################################################################
 ######################### Comment ################################
   comments:
@@ -24,6 +26,7 @@ en:
       reviews: "reviews"
       write_review: "Write a review"
       comment: "Comment"
+      follow_book: "Follow book"
     index:
       last_7d: "Last 7 days"
       last_14d: "Last 14 days"
@@ -43,6 +46,10 @@ en:
       available: "Available"
       unavailable: "Unavailable"
     search_book: "borrow"
+    like:
+      please_login: "Please login"
+    follow:
+      please_login: "Please login"  
 ##################################################################
 ############################Borrow###############################
   borrows:

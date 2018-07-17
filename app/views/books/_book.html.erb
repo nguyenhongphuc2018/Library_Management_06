@@ -17,16 +17,18 @@
           </span>
         <% end %>
       </div>
+      <div>
       <% if book.can_borrow? %>
         <% if user_signed_in? && current_user.borrows.check_approve(false).first.present? %>
-          <%= link_to t(".borrow"), add_book_borrow_path(id: book.id), class: "borrow-link text-available", method: :get, remote: true %>
+          <%= link_to t(".borrow"), add_book_borrow_path(id: book.id), class: "btn btn-primary btn-sm", method: :get, remote: true %>
         <% else %>
-          <%= link_to t(".borrow"), new_borrow_path(id: book.id), class: "borrow-link text-available", method: :get, remote: true %>
+          <%= link_to t(".borrow"), new_borrow_path(id: book.id), class: "btn btn-primary btn-sm", method: :get, remote: true %>
         <% end %>
         <span class="text-success"><%= t ".available" %></span>
       <% else %>
         <span class="text-warning"><%= t ".unavailable" %></span>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

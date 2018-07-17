@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "acts_as_follower", github: "tcocca/acts_as_follower"
+gem "acts_as_votable", "~> 0.11.1"
 gem "bootstrap", "~> 4.1.1"
 gem "bootstrap4-kaminari-views"
 gem "carrierwave", "1.2.2"

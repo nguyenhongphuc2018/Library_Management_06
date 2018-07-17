@@ -11,12 +11,18 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar])
   end
 
   def show_flash_error object_error
     object_error.errors.full_messages.each do |msg|
       flash[:notice] = msg
+    end
+  end
+
+  def user_logged_in
+    unless user_signed_in?
+      render :js => "window.location = '#{new_user_session_path}'"
     end
   end
 

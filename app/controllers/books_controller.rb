@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :load_book, only: %i(show)
+  before_action :load_book, only: %i(show like follow)
+  before_action :user_logged_in, only: %i(like follow)
 
   def index
     load_book_index
@@ -26,6 +27,32 @@ class BooksController < ApplicationController
     else
       load_search_autocomplete
       render json: {search: @search}
+    end
+  end
+      
+  def like
+    @id = params[:id]
+    if current_user.liked? @book
+      @book.unliked_by current_user
+    else
+      @book.liked_by current_user
+    end
+    @total_like = @book.votes_for.size
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def follow
+    @id = params[:id]
+    if current_user.following?(@book)
+      current_user.stop_following(@book)
+    else
+      current_user.follow(@book)
+    end
+    @total_follow = @book.followers_count
+    respond_to do |format|
+      format.js
     end
   end
 
