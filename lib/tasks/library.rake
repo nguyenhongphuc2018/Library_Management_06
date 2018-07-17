@@ -6,7 +6,7 @@ namespace :library do
     end
 
     User.create! name: "Hai Ninh", email: "haininh@gmail.com", password: "12345678", password_confirmation: "12345678"
-    User.create! name: "Hai Van", email: "haivan@gmail.com", password: "123456789", password_confirmation: "123456789"
+    User.create! name: "Van Hai", email: "haivan@gmail.com", password: "123456789", password_confirmation: "123456789"
     categories = [
       {name: "History", parent_id: nil},
       {name: "Literature & Fiction", parent_id: nil},

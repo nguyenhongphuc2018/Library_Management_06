@@ -1,0 +1,16 @@
+<div class="container">
+  <table class="table my-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th>name</th>
+        <th>id</th>
+      </tr>
+    </thead>
+    <tbody id="listCategory">
+      <%= render partial: "admin/categories/category", collection: @categories %>
+    </tbody>
+  </table>
+   <%= paginate(@categories, theme: "twitter-bootstrap-4",
+      pagination_class: "pagination-md float-right", remote: true) %>
+</div>

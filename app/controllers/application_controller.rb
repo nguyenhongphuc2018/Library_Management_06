@@ -39,4 +39,11 @@ class ApplicationController < ActionController::Base
   def store_user_location!
     store_location_for(:user, request.fullpath)
   end
+  def after_sign_in_path_for(resource)
+      if current_user.has_role? :admin
+        admin_url
+      else
+        super
+      end
+  end
 end

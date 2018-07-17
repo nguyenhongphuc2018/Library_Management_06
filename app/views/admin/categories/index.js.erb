@@ -1,0 +1,4 @@
+$('#listCategory').html("<%= render partial: "admin/categories/category", collection: @categories %>");
+$('#listPage').html(' <%= paginate(@categories, theme: "twitter-bootstrap-4",
+    pagination_class: "pagination-md float-right", remote: true) %>')
+toastr.success('<%= j @success %>');
