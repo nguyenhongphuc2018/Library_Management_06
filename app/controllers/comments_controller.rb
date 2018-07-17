@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :user_logged_in, :load_book, only: %i(create destroy)
   def create
     if current_user
@@ -14,12 +15,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if current_user.admin?
-      @comment = Comment.find_by id: params[:id] || not_found
-      @error = load_error_comment unless @comment.destroy
-    else
-      @error = t ".dont_permision"
-    end
+    @comment = Comment.find_by id: params[:id] || not_found
+    @error = load_error_comment unless @comment.destroy
     load_comments
     respond_to do |format|
       format.js

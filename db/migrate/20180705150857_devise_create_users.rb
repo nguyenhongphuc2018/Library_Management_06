@@ -18,7 +18,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.datetime :confirmation_sent_at
       t.string :unconfirmed_email
       t.string :name
-      t.integer :role, default: 0
       t.string :avatar
 
       t.timestamps null: false
