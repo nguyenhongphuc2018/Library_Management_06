@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+  load_and_authorize_resource
+  skip_authorize_resource only: %i(show)
   before_action :load_author, only: %i(show follow)
   before_action :user_logged_in, only: :follow
 

@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  after_create :assign_default_role
+  rolify
+
   mount_uploader :avatar, AvatarUploader
 
   devise :database_authenticatable, :registerable,
@@ -9,8 +12,8 @@ class User < ApplicationRecord
   has_many :comment_books, through: :comments, source: :book
   has_many :rates
   has_many :rate_books, through: :rates, source: :book
-
-  enum role: {guest: 0, admin: 1, banned: 2}
+  has_many :users_roles
+  has_many :roles, through: :users_roles
 
   acts_as_voter
   acts_as_follower
@@ -35,7 +38,12 @@ class User < ApplicationRecord
     borrows.check_approve(false).present?
   end
 
-  def check_rating _book_id
-    Rate.find_rating.any?
+  def check_rating book_id
+    Rate.find_rating(id, book_id).any?
+  end
+
+  private
+  def assign_default_role
+    self.add_role(:guest) if self.roles.blank?
   end
 end

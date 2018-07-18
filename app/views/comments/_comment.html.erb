@@ -15,7 +15,7 @@
         <div class="clearfix"></div>
           <p class="comment-content"><%= comment.content %></p>
           <div class="float-right">
-            <% if current_user && current_user.admin? %>
+            <% if current_user && current_user.has_role?(:admin) %>
               <%= link_to product_comment_path(@product.id, comment.id), method: :delete, remote: true, 
               data: { confirm: t(".you_are_sure") } do %>
                 <icon class="fa fa-trash fa-1x"></icon>

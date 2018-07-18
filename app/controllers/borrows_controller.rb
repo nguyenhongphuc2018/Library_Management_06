@@ -1,4 +1,5 @@
 class BorrowsController < ApplicationController
+  load_and_authorize_resource
   before_action :load_borrow, only: %i(edit update show)
   before_action :authenticate_user!, only: %i(index show create)
 

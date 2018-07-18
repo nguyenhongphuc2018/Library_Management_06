@@ -63,6 +63,7 @@ GEM
       rails (>= 3.1)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.2.0)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -228,6 +229,7 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rolify (5.2.0)
     rubocop (0.54.0)
       parallel (~> 1.10)
       parser (>= 2.5)
@@ -301,6 +303,7 @@ DEPENDENCIES
   bootstrap (~> 4.1.1)
   bootstrap4-kaminari-views
   byebug
+  cancancan (~> 2.0)
   capybara (~> 2.13)
   carrierwave (= 1.2.2)
   coffee-rails (~> 4.2)
@@ -319,6 +322,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.6)
   ransack
+  rolify
   rubocop (~> 0.54.0)
   sass-rails (~> 5.0)
   selenium-webdriver

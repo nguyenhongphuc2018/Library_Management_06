@@ -42,7 +42,7 @@ class Book < ApplicationRecord
   end
 
   def avg_rating
-    rates.average(:point).to_f.round Setting.round
+    rates.average(:point).to_f.round Settings.round
   end
 
   def load_image
